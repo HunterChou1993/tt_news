@@ -7,10 +7,12 @@ import './utils/vant.js'
 import './styles/index.less'
 // 导入 flexibale (给 rem 设置基准值)
 import 'amfe-flexible'
+import store from '@/store'
 
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: (h) => h(App),
 }).$mount('#app')

@@ -9,3 +9,11 @@ export function login(data) {
     data,
   })
 }
+
+// 获取用户信息
+export function getUserInfo() {
+  return request({
+    url: '/v1_0/user/profile',
+    // 向请求头添加参数
+  })
+}

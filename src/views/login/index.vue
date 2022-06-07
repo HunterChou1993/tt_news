@@ -37,7 +37,8 @@
 <script>
 // 导入网络请求
 import { loginApi } from '@/api'
-import { Toast } from 'vant'
+// 导入操作token的方法
+import { setToken } from '../../utils/auth'
 export default {
   data() {
     return {
@@ -68,31 +69,28 @@ export default {
     }
   },
   methods: {
-    onSubmit(value) {
+    async onSubmit(value) {
       // 设置按钮为加载状态
       this.loading = true
       // value是以{key: value}
       // key相当于 组件的name属性
-      // 提交数据到服务器
-      loginApi(value)
-        .then((res) => {
-          // 提示登录成功
-          console.log('登录成功')
-          this.$toast.success('登录成功')
-        })
-        .catch((error) => {
-          this.$toast.fail('登录失败')
-        })
-        .finally(() => {
-          // 关闭加载状态
-          this.loading = false
-        })
+      try {
+        // 提交数据到服务器
+        const res = await loginApi(value)
+        // 保存返回的token
+        this.$store.commit('setToken', res.data.data)
+        // 提示登录成功
+        this.$toast.success('登录成功')
+        // 跳转到我的页面
+        this.$router.push('/layout/my')
+      } catch {
+        this.$toast.fail('登录失败')
+      } finally {
+        this.loading = false
+      }
     },
   },
 }
 </script>
 
-<style lang="less">
-.login {
-}
-</style>
+<style lang="less"></style>
