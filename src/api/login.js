@@ -17,3 +17,10 @@ export function getUserInfo() {
     // 向请求头添加参数
   })
 }
+
+// 刷新用户的token
+// export function refreshToken() {
+//   return request({
+//     url:
+//   })
+// }

@@ -37,8 +37,6 @@
 <script>
 // 导入网络请求
 import { loginApi } from '@/api'
-// 导入操作token的方法
-import { setToken } from '../../utils/auth'
 export default {
   data() {
     return {
@@ -81,8 +79,15 @@ export default {
         this.$store.commit('setToken', res.data.data)
         // 提示登录成功
         this.$toast.success('登录成功')
-        // 跳转到我的页面
-        this.$router.push('/layout/my')
+        // 得到路径参数
+        const url = this.$route.query.url
+        if (url) {
+          // 跳转到 url 对应的路径中
+          this.$router.push(url)
+        } else {
+          // 跳转到首页
+          this.$router.push('/layout/home')
+        }
       } catch {
         this.$toast.fail('登录失败')
       } finally {

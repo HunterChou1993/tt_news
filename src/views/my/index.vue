@@ -23,7 +23,7 @@
     </van-grid>
     <!-- 其他信息 -->
     <van-cell-group>
-      <van-cell title="编辑资料" is-link icon="edit" />
+      <van-cell title="编辑资料" is-link icon="edit" to="/my/edit" />
       <van-cell title="小智同学" is-link icon="edit" />
       <van-cell title="系统设置" is-link icon="edit" />
       <van-cell title="退出登录" is-link icon="edit" />
@@ -32,16 +32,14 @@
 </template>
 
 <script>
-import { getUserInfoApi } from '../../api'
 export default {
-  data() {
-    return {
-      userInfo: {},
-    }
+  computed: {
+    userInfo: function () {
+      return this.$store.state.userInfo
+    },
   },
-  async created() {
-    const res = await getUserInfoApi()
-    this.userInfo = res.data.data
+  created() {
+    this.$store.dispatch('setUserInfo')
   },
 }
 </script>
