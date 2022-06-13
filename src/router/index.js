@@ -30,7 +30,13 @@ const routes = [
       },
     ],
   },
-  { path: '/my/edit', component: () => import('@/views/my/edit.vue') },
+  {
+    path: '/my/edit',
+    component: () => import('@/views/my/edit.vue'),
+    meta: {
+      needLogin: true,
+    },
+  },
 ]
 
 const router = new VueRouter({

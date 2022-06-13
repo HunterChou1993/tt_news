@@ -13,6 +13,10 @@ import {
   GridItem,
   Cell,
   CellGroup,
+  Dialog,
+  Popup,
+  DatetimePicker,
+  Uploader,
 } from 'vant'
 
 Vue.use(NavBar)
@@ -27,3 +31,7 @@ Vue.use(Grid)
 Vue.use(GridItem)
 Vue.use(Cell)
 Vue.use(CellGroup)
+Vue.use(Dialog)
+Vue.use(Popup)
+Vue.use(DatetimePicker)
+Vue.use(Uploader)

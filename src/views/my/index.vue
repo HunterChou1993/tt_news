@@ -26,13 +26,22 @@
       <van-cell title="编辑资料" is-link icon="edit" to="/my/edit" />
       <van-cell title="小智同学" is-link icon="edit" />
       <van-cell title="系统设置" is-link icon="edit" />
-      <van-cell title="退出登录" is-link icon="edit" />
+      <van-cell title="退出登录" is-link icon="edit" @click="logout" />
     </van-cell-group>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    logout() {
+      // 清除相关信息
+      this.$store.commit('logout')
+      // 重新回到登录页面
+      this.$router.push('/login')
+      this.$toast.success('退出成功')
+    },
+  },
   computed: {
     userInfo: function () {
       return this.$store.state.userInfo

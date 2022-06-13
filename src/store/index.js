@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 // 导入操作token 的方法
-import { getToken, setToken } from '@/utils/auth.js'
+import { getToken, setToken, delToken } from '@/utils/auth.js'
 // 导入获取用户个人信息
 import { getUserInfoApi } from '@/api/'
 Vue.use(Vuex)
@@ -26,6 +26,15 @@ const store = new Vuex.Store({
     // 给用户信息赋值
     setUserInfo(state, payload) {
       state.userInfo = payload
+    },
+    // 退出登录
+    logout(state) {
+      // 删除 localstorage 中的 token
+      delToken()
+      // 删除 vuex 中的token
+      state.token = {}
+      // 删除 vuex 中的 userInfo
+      state.userInfo = {}
     },
   },
   actions: {

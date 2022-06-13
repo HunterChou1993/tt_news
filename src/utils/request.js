@@ -7,6 +7,7 @@ import router from '@/router'
 const instance = axios.create({
   baseURL: 'http://toutiao.itheima.net/',
   // baseURL: 'http://toutiao-app.itheima.net/',
+  // baseURL: '/api',
 })
 
 // 添加请求拦截器
@@ -30,6 +31,7 @@ instance.interceptors.request.use(
 const refInstance = axios.create({
   baseURL: 'http://toutiao.itheima.net/',
   // baseURL: 'http://toutiao-app.itheima.net/',
+  // baseURL: '/api',
 })
 
 // 响应拦截器
