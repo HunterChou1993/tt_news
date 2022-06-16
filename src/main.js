@@ -8,6 +8,8 @@ import './styles/index.less'
 // 导入 flexibale (给 rem 设置基准值)
 import 'amfe-flexible'
 import store from '@/store'
+// 自己封装的过滤器
+import '@/filters'
 
 Vue.config.productionTip = false
 

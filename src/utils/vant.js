@@ -17,6 +17,10 @@ import {
   Popup,
   DatetimePicker,
   Uploader,
+  Icon,
+  Tab,
+  Tabs,
+  List,
 } from 'vant'
 
 Vue.use(NavBar)
@@ -35,3 +39,7 @@ Vue.use(Dialog)
 Vue.use(Popup)
 Vue.use(DatetimePicker)
 Vue.use(Uploader)
+Vue.use(Icon)
+Vue.use(Tab)
+Vue.use(Tabs)
+Vue.use(List)
